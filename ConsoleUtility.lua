@@ -104,7 +104,9 @@ function Remove:Delete(msg)
         end
     end
 end
-
+if not DevConsole then
+    repeat task.wait() until DevConsole
+end
 if not getgenv().LOADED then
     Remove:Clear()
 
@@ -131,9 +133,6 @@ if not getgenv().LOADED then
     Remove:Clear()
 end
 
-if not DevConsole then
-    repeat task.wait() until DevConsole
-end
 
 function Utility:GetPrint()
     local frames = 0
