@@ -104,35 +104,6 @@ function Remove:Delete(msg)
         end
     end
 end
-if not DevConsole then
-    repeat task.wait() until DevConsole
-end
-if not getgenv().LOADED then
-    Remove:Clear()
-
-    print('placeholder')
-    print('placeholder')
-    print('placeholder')
-
-    repeat wait() until DevConsole:FindFirstChild("3")
-    Utility:GetRefrence()
-
-    task.wait(0.25)
-
-
-    print("STATUS: LOADING")
-    Remove:Edit("STATUS: LOADING", _, _, Color3.fromRGB(255, 255, 0))
-    getgenv().LOADED = true
-
-    Remove:Edit("STATUS: LOADING", "✔️ STATUS: LOADED", 1, Color3.fromRGB(0,255,0))
-    Remove:Delete("STATUS: LOADED")
-
-    getgenv().LOADED = true -- // prevent multiple executions
-
-    task.wait(0.25)
-    Remove:Clear()
-end
-
 
 function Utility:GetPrint()
     local frames = 0
@@ -228,6 +199,38 @@ function Add:Info(msg, transparency)
     clone:FindFirstChild("msg").TextTransparency = ((not transparency and 0) or transparency)
     clone:FindFirstChild("msg").Text = ((not msg and Utility:GetTime().." -- This is a cool info message!") or Utility:GetTime().." -- "..msg)
 end
+
+if not getgenv().LOADED then
+    Remove:Clear()
+
+    -- // plceholders for cloens aka im hella lazy 
+    print('placeholder')
+    print('placeholder')
+    print('placeholder')
+
+    repeat wait() until DevConsole:FindFirstChild("3")
+    Utility:GetRefrence()
+
+    task.wait(0.25)
+    Remove:Delete("placeholder")
+
+    Add:Print("STATUS: LOADING", Color3.fromRGB(255, 255, 0))
+    getgenv().LOADED = true
+
+    Remove:Edit("STATUS: LOADING", "✔️ STATUS: LOADED", 1, Color3.fromRGB(0,255,0))
+    task.wait(0.25)
+    Remove:Delete("STATUS: LOADED")
+
+    getgenv().LOADED = true -- // prevent multiple executions
+
+    task.wait(0.25)
+    Remove:Clear()
+end
+
+if not DevConsole then
+    repeat task.wait() until DevConsole
+end
+
 -- // demo \\ --
 
 
@@ -259,3 +262,4 @@ task.wait(2.5)
 
 Remove:Clear()
 
+Add:Print("demo done! hahah", Color3.fromRGB(0,255,0))
