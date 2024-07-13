@@ -1,7 +1,7 @@
--- consile utility haha
+-- consile Library haha
 
 
--- // ray's console utility \\ --
+-- // ray's console Library \\ --
 
 --[[
 
@@ -63,9 +63,9 @@ function Library:Edit(msg, newMsg, newLayout, color, transparency)
         if v:IsA("TextLabel") then
             if v.Text:find(msg) then
                 if not newMsg or newMsg == "_" then
-                    newMsg = Utility:GetTime() .. " -- ".. msg
+                    newMsg = :GetTime() .. " -- ".. msg
                 else
-                    newMsg = Utility:GetTime() .. " -- " .. newMsg
+                    newMsg = Library:GetTime() .. " -- " .. newMsg
                 end
                 v.Text = newMsg
 
@@ -127,7 +127,7 @@ end
 function Library:TickErrorCount()
     -- // i needa add ts
 end
-function Library.Add:Print(msg, color, transparency)
+function Library:Print(msg, color, transparency)
     local clone
 
     if game.Workspace:FindFirstChild("Refrence") then
@@ -145,7 +145,7 @@ function Library.Add:Print(msg, color, transparency)
     clone:FindFirstChild("msg").Text = ((not msg and Library:GetTime().." -- This is a cool print message!") or Library:GetTime().." -- "..msg)
 end
 
-function Library.Add:Warn(msg, transparency)
+function Library:Warn(msg, transparency)
     local clone
 
     if game.Workspace:FindFirstChild("Refrence") then
@@ -200,11 +200,11 @@ function Library:Info(msg, transparency)
     clone:FindFirstChild("msg").TextColor3 = Color3.fromRGB(0, 165, 255)
     clone:FindFirstChild("image").Image = 'rbxasset://textures/DevConsole/Info.png'
     clone:FindFirstChild("msg").TextTransparency = ((not transparency and 0) or transparency)
-    clone:FindFirstChild("msg").Text = ((not msg and Utility:GetTime().." -- This is a cool info message!") or Utility:GetTime().." -- "..msg)
+    clone:FindFirstChild("msg").Text = ((not msg and Library:GetTime().." -- This is a cool info message!") or Library:GetTime().." -- "..msg)
 end
 
 if not getgenv().LOADED then
-    Remove:Clear()
+    Library:Clear()
 
     -- // plceholders for cloens aka im hella lazy 
     print('placeholder')
@@ -217,7 +217,7 @@ if not getgenv().LOADED then
     task.wait(0.25)
     Library:Delete("placeholder")
 
-    Library.Add:Print("STATUS: LOADING", Color3.fromRGB(255, 255, 0))
+    Library:Print("STATUS: LOADING", Color3.fromRGB(255, 255, 0))
     getgenv().LOADED = true
 
     Library:Edit("STATUS: LOADING", "✔️ STATUS: LOADED", 1, Color3.fromRGB(0,255,0))
