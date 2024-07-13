@@ -63,7 +63,7 @@ function Library:Edit(msg, newMsg, newLayout, color, transparency)
         if v:IsA("TextLabel") then
             if v.Text:find(msg) then
                 if not newMsg or newMsg == "_" then
-                    newMsg = :GetTime() .. " -- ".. msg
+                    newMsg = Library:GetTime() .. " -- ".. msg
                 else
                     newMsg = Library:GetTime() .. " -- " .. newMsg
                 end
