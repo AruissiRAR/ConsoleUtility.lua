@@ -230,8 +230,45 @@ if not getgenv().LOADED then
     Library:Clear()
 end
 
+
 if not DevConsole then
     repeat task.wait() until DevConsole
+end
+
+function Library:Demo()
+    Library:Print("Hello!", Color3.fromRGB(255,0,255), 0.5)
+    Library:Error("Hello!", 0.5)
+    Library:Warn("Hello!", 0.5)
+    Library:Info("Hello!", 0.5)
+    task.wait(5)
+    
+    Library:Clear()
+    
+    
+    Library:Print()
+    Library:Error()
+    Library:Warn()
+    Library:Info()
+    
+    task.wait(2.5)
+    
+    Library:Edit("This is a cool error message!", "Ray is NOT a good dev!", 2, Color3.fromRGB(0,16,255), 0)
+    Library:Edit("This is a cool warn message!", "Ray is such a good dev!", 1, Color3.fromRGB(0,16,255), 0)
+    Library:Edit("This is a cool print message!", "Ray is such a good dev!", 3, Color3.fromRGB(0,16,255), 0)
+    Library:Edit("This is a cool info message!", "Ray is such a good dev!", 4, Color3.fromRGB(0,16,255), 0)
+    task.wait(2.5)
+    
+    Library:Delete("Ray is NOT a good dev!")
+    
+    task.wait(2.5)
+    
+    Library:Clear()
+    Library:Print("demo done! hahah", Color3.fromRGB(0,255,0))
+    
+    task.wait(2.5)
+    
+    Library:Clear()
+    return
 end
 
 return Library;
